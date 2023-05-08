@@ -1,0 +1,24 @@
+$(function () {
+  $('.menu__btn').on('click', function () {
+    $('.menu__list').toggleClass('menu__list--active');
+  });
+});
+
+function backToTop() {
+  let button = $('.back_to_top');
+
+  $(window).on('scroll', () => {
+    if ($(this).scrollTop() >= 50) {
+      button.fadeIn();
+    } else {
+      button.fadeOut();
+    }
+  });
+
+  button.on('click', (e) => {
+    e.preventDefault();
+    $('html').animate({ scrollTop: 0 }, 1000);
+  });
+}
+
+backToTop();
